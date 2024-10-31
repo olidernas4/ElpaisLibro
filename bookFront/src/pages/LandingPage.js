@@ -1,6 +1,6 @@
 // src/pages/LandingPage.js
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom';
 import LazyComponent from '../components/LazyComponent';
 import libro1 from '../img/libro1.jpg';
 import libro2 from '../img/libro2.jpg';
@@ -19,7 +19,7 @@ const images = [
 const LandingPage = () => {
   const [loadLazyComponent, setLoadLazyComponent] = useState(false);
   const [visibleImages, setVisibleImages] = useState(Array(images.length).fill(false));
-  const navigate = useNavigate(); // Hook para la navegación
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,33 +40,78 @@ const LandingPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [loadLazyComponent, visibleImages]);
 
-  // Función para manejar la redirección al dashboard
   const handleDashboardRedirect = () => {
-    navigate('/dashboard'); // Redirige al dashboard
+    navigate('/dashboard');
   };
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>Landing Page</h1>
-      <h2>Images:</h2>
-      <div>
+      <h1 style={{
+        fontFamily: `'Playfair Display', serif`,
+        fontWeight: 'bold',
+        fontSize: '2.5rem',
+        letterSpacing: '1px',
+        textTransform: 'uppercase',
+        textAlign: 'center',
+        marginBottom: '20px'
+      }}>
+        Landing Page
+      </h1>
+      <h2 style={{
+        fontFamily: `'Playfair Display', serif`,
+        fontSize: '1.8rem',
+        letterSpacing: '0.5px',
+        textAlign: 'center',
+        marginBottom: '30px'
+      }}>
+        Discover Our Collection
+      </h2>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>
         {images.map((image, index) => (
-          <div key={index} id={`image-${index}`} style={{ marginBottom: '10px' }}>
+          <div key={index} id={`image-${index}`} style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            maxWidth: '500px', 
+            marginBottom: '20px',
+            overflow: 'hidden',
+            borderRadius: '10px'
+          }}>
             {visibleImages[index] ? (
-              <img src={image} alt={`img-${index}`} width="300" />
+              <img src={image} alt={`img-${index}`} width="100%" style={{ objectFit: 'cover' }} />
             ) : (
-              <div style={{ height: '300px', backgroundColor: '#e0e0e0' }} />
+              <div style={{ height: '300px', width: '100%', backgroundColor: '#e0e0e0' }} />
             )}
           </div>
         ))}
       </div>
-      <div id="lazy-component">
+      <div id="lazy-component" style={{ marginTop: '40px' }}>
         {loadLazyComponent && <LazyComponent />}
       </div>
-      {/* Botón para redirigir al dashboard */}
       <button 
         onClick={handleDashboardRedirect} 
-        style={{ marginTop: '20px', padding: '10px 20px', fontSize: '16px' }}>
+        style={{
+          display: 'block',
+          margin: '30px auto',
+          padding: '12px 30px',
+          fontSize: '16px',
+          fontFamily: `'Playfair Display', serif`,
+          fontWeight: 'bold',
+          letterSpacing: '1px',
+          backgroundColor: '#4CAF50',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          textTransform: 'uppercase',
+          transition: 'background-color 0.3s ease'
+        }}
+      >
         Go to Dashboard
       </button>
     </div>

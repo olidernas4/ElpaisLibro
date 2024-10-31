@@ -46,16 +46,28 @@ const Dashboard = () => {
 
   return (
     <div className="container mt-4">
-      <h1>Dashboard de Libros</h1>
-      <BookForm selectedBook={selectedBook} onSave={handleSave} onCancel={() => setSelectedBook(null)} />
-      {/* <Filter 
-        status={filter.status} 
-        genre={filter.genre} 
-        onFilterChange={handleFilterChange} 
-      /> */}
-      <BookSearch query={searchQuery} onSearchChange={handleSearchChange} />
-      <BookList books={filteredBooks} onEdit={handleEdit} onDelete={handleDelete} />
-    </div>
+        <h1 
+          className="text-center my-4" 
+          style={{
+            fontFamily: `'Playfair Display', serif`, // Fuente tipo periódico
+            fontWeight: 'bold',
+            fontSize: '2.5rem',
+            letterSpacing: '1px', // Ligero espaciado para efecto de título
+            textTransform: 'uppercase'
+          }}
+        >
+          Dashboard de Libros
+        </h1>
+        <BookForm selectedBook={selectedBook} onSave={handleSave} onCancel={() => setSelectedBook(null)} />
+        {/* <Filter 
+          status={filter.status} 
+          genre={filter.genre} 
+          onFilterChange={handleFilterChange} 
+        /> */}
+        <BookSearch query={searchQuery} onSearchChange={handleSearchChange} />
+        <BookList books={filteredBooks} onEdit={handleEdit} onDelete={handleDelete} />
+      </div>
+
   );
 };
 

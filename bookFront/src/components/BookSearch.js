@@ -138,16 +138,20 @@ const BookManager = () => {
 
   return (
     <div>
-      <div className="mb-4">
-        <input
-          type="text"
-          className="form-control"
-          value={query}
-          placeholder="Buscar por título o autor"
-          onChange={(e) => handleSearchChange(e.target.value)}
-        />
-      </div>
-      <Filter status={status} genre={genre} onFilterChange={handleFilterChange} />
+      <div className="d-flex justify-content-center my-5">
+          <div className="card p-3 shadow-sm" style={{ width: '100%', maxWidth: '500px' }}>
+            <input
+              type="text"
+              className="form-control"
+              value={query}
+              placeholder="Buscar por título o autor"
+              onChange={(e) => handleSearchChange(e.target.value)}
+            />
+            <Filter status={status} genre={genre} onFilterChange={handleFilterChange} />
+          </div>
+        </div>
+
+      
       
       <BookList books={filteredBooks} onDelete={handleDelete} onEdit={handleEdit} />
 
