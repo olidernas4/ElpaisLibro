@@ -1,4 +1,4 @@
-// src/pages/Dashboard.js
+
 import React, { useState } from 'react';
 import BookForm from '../components/BookForm';
 import BookList from '../components/BookList';
@@ -49,10 +49,10 @@ const Dashboard = () => {
         <h1 
           className="text-center my-4" 
           style={{
-            fontFamily: `'Playfair Display', serif`, // Fuente tipo periódico
+            fontFamily: `'Playfair Display', serif`, 
             fontWeight: 'bold',
             fontSize: '2.5rem',
-            letterSpacing: '1px', // Ligero espaciado para efecto de título
+            letterSpacing: '1px', 
             textTransform: 'uppercase'
           }}
         >

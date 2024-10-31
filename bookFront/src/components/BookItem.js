@@ -1,4 +1,4 @@
-// src/components/BookItem.js
+
 import React from 'react';
 
 const getStatusText = (status) => {

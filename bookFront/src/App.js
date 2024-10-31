@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/landing" element={<LandingPage />} /> {/* Asegúrate de que esta ruta exista */}
+          <Route path="/landing" element={<LandingPage />} /> 
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Suspense>

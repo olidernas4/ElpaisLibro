@@ -1,4 +1,4 @@
-// src/pages/LandingPage.js
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LazyComponent from '../components/LazyComponent';

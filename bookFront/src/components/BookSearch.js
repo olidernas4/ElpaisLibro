@@ -1,4 +1,4 @@
-// src/components/BookManager.js
+
 import React, { useEffect, useState } from 'react';
 import BookList from './BookList';
 import Filter from './Filter';
@@ -19,7 +19,7 @@ const BookManager = () => {
   const [updatedGenre, setUpdatedGenre] = useState('');
   const [updatedStatus, setUpdatedStatus] = useState('');
 
-  // Fetch books from the backend
+
   const fetchBooks = async () => {
     try {
       const response = await fetch('http://localhost:3000/api/books', {
@@ -96,7 +96,7 @@ const BookManager = () => {
     }
   };
 
-  // New function to handle editing
+  //  handle editing
   const handleEdit = (book) => {
     setSelectedBook(book);
     setUpdatedTitle(book.title);

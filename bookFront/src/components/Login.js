@@ -1,4 +1,3 @@
-// src/components/Login.js
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 
@@ -6,22 +5,21 @@ const Login = () => {
   const [username, setUsername] = useState(''); 
   const [password, setPassword] = useState(''); 
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState(''); // Estado para manejar el mensaje de éxito
+  const [successMessage, setSuccessMessage] = useState(''); 
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
-    setSuccessMessage(''); // Reiniciar mensaje de éxito al intentar iniciar sesión
+    setSuccessMessage('');
 
     try {
-      // Envía la contraseña en texto plano
       const response = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }), // Envía la contraseña en texto plano
+        body: JSON.stringify({ username, password }),
       });
 
       if (!response.ok) {
@@ -31,7 +29,7 @@ const Login = () => {
 
       const data = await response.json();
       localStorage.setItem('token', data.token);
-      setSuccessMessage('Login exitoso. Redirigiendo a la Landing Page...'); // Mensaje de éxito
+      setSuccessMessage('Login exitoso. Redirigiendo a la Landing Page...');
       setTimeout(() => {
         navigate('/landing'); // Redirige a la landing page después de 2 segundos
       }, 2000);
@@ -43,7 +41,7 @@ const Login = () => {
   };
 
   const handleRegisterRedirect = () => {
-    navigate('/register');
+    navigate('/register'); 
   };
 
   return (
@@ -51,7 +49,7 @@ const Login = () => {
       <form className="border p-4 rounded shadow" style={{ width: '400px', backgroundColor: '#f8f9fa' }} onSubmit={handleLogin}>
         <h2 className="text-center mb-4">Login</h2>
         {error && <div className="alert alert-danger">{error}</div>}
-        {successMessage && <div className="alert alert-success">{successMessage}</div>} {/* Mostrar mensaje de éxito */}
+        {successMessage && <div className="alert alert-success">{successMessage}</div>} 
         <div className="mb-3">
           <label htmlFor="username" className="form-label">Username</label>
           <input 
@@ -86,4 +84,3 @@ const Login = () => {
 };
 
 export default Login;
-

@@ -1,6 +1,6 @@
-// src/components/LazyComponent.js
+
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de importar Bootstrap si no lo has hecho
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const LazyComponent = () => {
   return (
